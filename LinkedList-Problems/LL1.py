@@ -1,3 +1,5 @@
+# NODE AT A GIVEN POSITION IN LINKED LIST
+
 class Node:
     def __init__(self, data=None):
         self.data = data
@@ -7,7 +9,6 @@ class LinkedList:
     def __init__(self):
         self.head = None
 
-    # Insertion Operations
     def insert_at_beginning(self, data):
         new_node = Node(data)
         new_node.next = self.head
@@ -30,7 +31,6 @@ class LinkedList:
         new_node.next = node.next
         node.next = new_node
 
-    # Deletion Operations
     def delete_node(self, key):
         curr_node = self.head
         if curr_node and curr_node.data == key:
@@ -63,7 +63,16 @@ class LinkedList:
         prev_node.next = curr_node.next
         curr_node = None
 
-    # Search and Length Operations
+    def node_at_pos(self,pos):
+        count = 1
+        temp = self.head
+        while temp is not None:
+            if count == pos:
+                print(f"The value at {pos} node is {temp.data}")
+            temp = temp.next
+            count = count + 1
+        return
+        
     def search(self, key):
         curr_node = self.head
         while curr_node:
@@ -80,7 +89,6 @@ class LinkedList:
             curr_node = curr_node.next
         return count
 
-    # Printing the list
     def print_list(self):
         curr_node = self.head
         while curr_node:
@@ -88,8 +96,10 @@ class LinkedList:
             curr_node = curr_node.next
         print()
         
-ll = LinkedList
-ll.insert_at_beginning(50)
-ll.insert_at_beginning(40)
-ll.insert_at_beginning(30)
-ll.insert_at_beginning(20)
+ll = LinkedList()
+ll.insert_at_end(5)
+ll.insert_at_end(10)
+ll.insert_at_end(15)
+ll.insert_at_end(20)
+
+ll.node_at_pos(2)
