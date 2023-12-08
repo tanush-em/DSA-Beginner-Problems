@@ -1,7 +1,7 @@
 # NODE AT A GIVEN POSITION IN LINKED LIST
 
 class Node:
-    def __init__(self, data=None):
+    def __init__(self, data):
         self.data = data
         self.next = None
 
